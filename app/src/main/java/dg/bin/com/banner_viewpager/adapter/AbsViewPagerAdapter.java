@@ -11,6 +11,7 @@ import java.util.List;
  * Created by b on 2019/1/9.
  */
 
+@SuppressWarnings("ALL")
 public abstract class AbsViewPagerAdapter extends PagerAdapter {
 
     public static final String TAG = AbsViewPagerAdapter.class.getSimpleName();

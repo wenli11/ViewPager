@@ -9,10 +9,6 @@ import java.util.List;
 
 import dg.bin.com.banner_viewpager.R;
 
-/**
- * Created by b on 2019/1/9.
- */
-
 public class OnePageMoreViewViewPagerAdapterImpl extends AbsViewPagerAdapter {
 
     public OnePageMoreViewViewPagerAdapterImpl(Context mContext, List<Integer> mList){
@@ -22,7 +18,7 @@ public class OnePageMoreViewViewPagerAdapterImpl extends AbsViewPagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        // 获得相应位置上的view； container view的容器，其实就是viewpage自身,
+        // 获得相应位置上的view； container view的容器，其实就是viewpager自身,
         // position: viewpager上的位置
         // 给container添加内容
         ImageView img = (ImageView) LayoutInflater.from(mContext).inflate(R.layout.vp_img, container, false);
@@ -35,7 +31,6 @@ public class OnePageMoreViewViewPagerAdapterImpl extends AbsViewPagerAdapter {
 
     @Override
     public float getPageWidth(int position) {
-//        return 1.0f/3;
-        return 0.4f;
+        return 1.0f/3;
     }
 }

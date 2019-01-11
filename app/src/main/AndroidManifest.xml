@@ -19,7 +19,8 @@
         <activity android:name=".activity.OrdinaryViewPagerActivity" />
         <activity android:name=".activity.CirculationViewPagerActivity" />
         <activity android:name=".activity.AutomaticCirculationViewPagerActivity" />
-        <activity android:name=".activity.OnePageMoreViewViewPagerActivity"></activity>
+        <activity android:name=".activity.ViewPagerActivity" />
+        <activity android:name=".activity.OnePageMoreViewViewPagerActivity"/>
     </application>
 
 </manifest>

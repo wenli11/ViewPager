@@ -9,17 +9,13 @@ import java.util.List;
 
 import dg.bin.com.banner_viewpager.R;
 
-/**
- * Created by b on 2019/1/9.
- */
-
 public class CirculationViewPagerAdapterImpl extends AbsViewPagerAdapter {
 
     public static final int ALL = 2;
     public static final int LEFT = 1;
     public static final int RIGHT = 0;
 
-    public int mCirculationDirection;// 0 向右滑动循环 1 向左滑动循环
+    public final int mCirculationDirection;// 0 向右滑动循环 1 向左滑动循环
 
     public CirculationViewPagerAdapterImpl(Context mContext, List<Integer> mList, int mCirculationDirection){
         this.mContext = mContext;
@@ -41,7 +37,7 @@ public class CirculationViewPagerAdapterImpl extends AbsViewPagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        // 获得相应位置上的view； container view的容器，其实就是viewpage自身,
+        // 获得相应位置上的view； container view的容器，其实就是viewpager自身,
         // position: viewpager上的位置
         // 给container添加内容
         ImageView img = (ImageView) LayoutInflater.from(mContext).inflate(R.layout.vp_img, container, false);

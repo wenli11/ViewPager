@@ -8,12 +8,11 @@ import java.util.List;
 
 import dg.bin.com.banner_viewpager.R;
 import dg.bin.com.banner_viewpager.adapter.OrdinaryViewPagerAdapterImpl;
+import dg.bin.com.banner_viewpager.settings.pagetransformer.PageTransformerAnalysis;
 
 public class OrdinaryViewPagerActivity extends ViewPagerActivity {
 
-    List<Integer> listImg;
-
-    ViewPager vpOrdinary;
+    private List<Integer> listImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +25,17 @@ public class OrdinaryViewPagerActivity extends ViewPagerActivity {
     }
 
     private void initData() {
-        listImg = new ArrayList();
-        listImg.add(R.drawable.aixi);
-        listImg.add(R.drawable.longgui);
-        listImg.add(R.drawable.wenyi);
-        listImg.add(R.drawable.timo);
+        listImg = new ArrayList<>();
+        listImg.add(R.mipmap.aixi);
+        listImg.add(R.mipmap.longgui);
+        listImg.add(R.mipmap.wenyi);
+        listImg.add(R.mipmap.timo);
     }
 
     private void initView() {
-        vpOrdinary = findViewById(R.id.vp_ordinary);
+        ViewPager vpOrdinary = findViewById(R.id.vp_ordinary);
         vpOrdinary.setLayoutParams(viewPagerLayoutParams());
         vpOrdinary.setAdapter(new OrdinaryViewPagerAdapterImpl(this, listImg));
+        vpOrdinary.setPageTransformer(true, new PageTransformerAnalysis());
     }
 }

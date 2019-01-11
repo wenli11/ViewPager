@@ -2,7 +2,6 @@ package dg.bin.com.banner_viewpager.activity;
 
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -10,7 +9,6 @@ import java.util.List;
 
 import dg.bin.com.banner_viewpager.R;
 import dg.bin.com.banner_viewpager.adapter.CirculationViewPagerAdapterImpl;
-import dg.bin.com.banner_viewpager.settings.ViewPagerDuration;
 
 import static dg.bin.com.banner_viewpager.adapter.CirculationViewPagerAdapterImpl.ALL;
 import static dg.bin.com.banner_viewpager.adapter.CirculationViewPagerAdapterImpl.LEFT;
@@ -18,41 +16,41 @@ import static dg.bin.com.banner_viewpager.adapter.CirculationViewPagerAdapterImp
 
 public class AutomaticCirculationViewPagerActivity extends ViewPagerActivity {
 
-    List<Integer> listImg;
+    private List<Integer> listImg;
 
-    ViewPager vpAutomaticCirculation;
+    private ViewPager vpAutomaticCirculation;
 
-    CirculationViewPagerAdapterImpl mAdapter;
+    private CirculationViewPagerAdapterImpl mAdapter;
 
-    int mDelayTime = 1000;
+    private final int mDelayTime = 1000;
 
-    Handler mHandler = new Handler();
+    private final Handler mHandler = new Handler();
 
-    Runnable mRunable = new Runnable() {
+    private final Runnable mRunnable = new Runnable() {
         @Override
         public void run() {
             int currentItem = vpAutomaticCirculation.getCurrentItem();
             if(mAdapter.mCirculationDirection == LEFT){
                 if(currentItem < mAdapter.getCount() - 1){
                     vpAutomaticCirculation.setCurrentItem(currentItem + 1);
-                    mHandler.postDelayed(mRunable, mDelayTime);
+                    mHandler.postDelayed(mRunnable, mDelayTime);
                 }
             }else if(mAdapter.mCirculationDirection == RIGHT){
                 if(currentItem > 0){
                     vpAutomaticCirculation.setCurrentItem(currentItem - 1);
-                    mHandler.postDelayed(mRunable, mDelayTime);
+                    mHandler.postDelayed(mRunnable, mDelayTime);
                 }
             }else if(mAdapter.mCirculationDirection == ALL){
                 //设置向右滑动循环
 //                if(currentItem > 0){
 //                    vpAutomaticCirculation.setCurrentItem(currentItem - 1);
-//                    mHandler.postDelayed(mRunable, mDelayTime);
+//                    mHandler.postDelayed(mRunnable, mDelayTime);
 //                }
 
                 //设置向左滑动循环
                 if(currentItem < mAdapter.getCount() - 1){
                     vpAutomaticCirculation.setCurrentItem(currentItem + 1);
-                    mHandler.postDelayed(mRunable, mDelayTime);
+                    mHandler.postDelayed(mRunnable, mDelayTime);
                 }
             }
         }
@@ -71,32 +69,32 @@ public class AutomaticCirculationViewPagerActivity extends ViewPagerActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        mHandler.postDelayed(mRunable, mDelayTime);
+        mHandler.postDelayed(mRunnable, mDelayTime);
     }
 
     @Override
     protected void onStop() {
-        mHandler.removeCallbacks(mRunable);
+        mHandler.removeCallbacks(mRunnable);
         super.onStop();
     }
 
     private void initData() {
-        listImg = new ArrayList();
-        listImg.add(R.drawable.aixi);
-        listImg.add(R.drawable.longgui);
-        listImg.add(R.drawable.wenyi);
-        listImg.add(R.drawable.timo);
+        listImg = new ArrayList<>();
+        listImg.add(R.mipmap.aixi);
+        listImg.add(R.mipmap.longgui);
+        listImg.add(R.mipmap.wenyi);
+        listImg.add(R.mipmap.timo);
     }
 
     private void initView() {
         vpAutomaticCirculation = findViewById(R.id.vp_automatic_circulation);
         vpAutomaticCirculation.setLayoutParams(viewPagerLayoutParams());
         //向左滑动可以无限循环
-//        mAdapter = new CirculationViewPagerAdapterImpl(this, listImg, LEFT);
+        mAdapter = new CirculationViewPagerAdapterImpl(this, listImg, LEFT);
         //向右滑动可以无限循环
 //        mAdapter = new CirculationViewPagerAdapterImpl(this, listImg, RIGHT);
         //向左向右滑动都可以无限循环
-        mAdapter = new CirculationViewPagerAdapterImpl(this, listImg, ALL);
+//        mAdapter = new CirculationViewPagerAdapterImpl(this, listImg, ALL);
         vpAutomaticCirculation.setAdapter(mAdapter);
         vpAutomaticCirculation.setCurrentItem(1);
 

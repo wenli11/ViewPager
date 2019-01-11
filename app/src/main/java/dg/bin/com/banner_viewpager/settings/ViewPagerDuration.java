@@ -6,17 +6,13 @@ import android.widget.Scroller;
 
 import java.lang.reflect.Field;
 
-/**
- * Created by b on 2019/1/10.
- */
-
 public class ViewPagerDuration {
 
     private static final String TAG = ViewPagerDuration.class.getSimpleName();
 
     /**
      * 设置 viewpager 执行动画的时间,默认250
-     * @param vp
+     * @param vp 要设置的 viewpager
      * @param newDuration 以毫秒为单位
      */
     public static void setViewPagerDuration(ViewPager vp, final int newDuration){

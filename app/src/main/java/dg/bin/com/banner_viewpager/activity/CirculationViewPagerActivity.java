@@ -15,11 +15,11 @@ import static dg.bin.com.banner_viewpager.adapter.CirculationViewPagerAdapterImp
 
 public class CirculationViewPagerActivity extends ViewPagerActivity {
 
-    List<Integer> listImg;
+    private List<Integer> listImg;
 
-    ViewPager vpCirculation;
+    private ViewPager vpCirculation;
 
-    CirculationViewPagerAdapterImpl mAdapter;
+    private CirculationViewPagerAdapterImpl mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +32,11 @@ public class CirculationViewPagerActivity extends ViewPagerActivity {
     }
 
     private void initData() {
-        listImg = new ArrayList();
-        listImg.add(R.drawable.aixi);
-        listImg.add(R.drawable.longgui);
-        listImg.add(R.drawable.wenyi);
-        listImg.add(R.drawable.timo);
+        listImg = new ArrayList<>();
+        listImg.add(R.mipmap.aixi);
+        listImg.add(R.mipmap.longgui);
+        listImg.add(R.mipmap.wenyi);
+        listImg.add(R.mipmap.timo);
     }
 
     private void initView() {

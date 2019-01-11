@@ -3,10 +3,6 @@ package dg.bin.com.banner_viewpager.settings.pagetransformer;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
-/**
- * Created by b on 2019/1/11.
- */
-
 public class PageTransformerAnalysis implements ViewPager.PageTransformer {
     @Override
     public void transformPage(View page, float position) {
@@ -24,9 +20,7 @@ public class PageTransformerAnalysis implements ViewPager.PageTransformer {
         //==-1，大小的 50%
         //==1， 大小的 50%
 
-        if(position < -1){
-            //(-oo,-1)不需要关注
-        }else if(position <= 0){
+        if(position <= 0){
             //[-1, 0]
             //向左滑动时，执行【-1，0），view 大小从 100% 变成 50%，代码 1+0.5f*position
             //向右滑动时，执行（-1，0】，view 大小从 50% 变成 100%，代码 1+0.5f*position
@@ -38,8 +32,6 @@ public class PageTransformerAnalysis implements ViewPager.PageTransformer {
             //向右滑动时，执行（0，1】，view 大小从 100% 变成 50%，代码 1-0.5f*position
             page.setScaleX(1-0.5f*position);
             page.setScaleY(1-0.5f*position);
-        }else{
-            //(1,+oo)不需要关注
         }
     }
 }
